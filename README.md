@@ -1,4 +1,4 @@
-# RAG LANGCHAIN RAGAS
+# RAG LANGCHAIN RAGAS ⛓️
 
 ![Screenshot 2024-02-08 172210](https://github.com/benitomartin/mlops-car-prices/assets/116911431/4cf4eb86-fc0e-4126-86c6-5585e72a097c)
 
