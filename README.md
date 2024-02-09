@@ -22,7 +22,7 @@ The main steps taken to build the RAG pipeline can be summarize as follows (a ba
 
 * **Scoring**: top k most similar results
 
-* **Evaluation**: TestsetGenerator from RAGAS and evaluation with answer_relevancy, context_recall, context_precision, and answer_correctness
+* **Evaluation**: TestsetGenerator from RAGAS and evaluation with faithfulness, answer_relevancy, context_recall, context_precision, and answer_correctness
 
 ## 👨‍💻 **Tech Stack**
 
