@@ -2,7 +2,7 @@
 
 ![Screenshot 2024-02-08 172210](https://github.com/benitomartin/mlops-car-prices/assets/116911431/4cf4eb86-fc0e-4126-86c6-5585e72a097c)
 
-This repository contains a full Q&A pipeline using langchain framework, FAISS as vector database and RAGAS as evaluation metrics. The data used is the Hallucinations Leaderboard from **[HuggingFace](https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations)**. 
+This repository contains a full Q&A pipeline using LangChain framework, FAISS as vector database and RAGAS as evaluation metrics. The data used is the Hallucinations Leaderboard from **[HuggingFace](https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations)**. 
 
 The notebook was run using **google colab (GPU required)**
 
@@ -69,7 +69,7 @@ response = qa_combined_chain({"query": question, "context": retriever})
 ```
 
 
-The results of the chan can be seen below to the question `What are hallucinations in the context of LLM models?`
+The results of the chain can be seen below to the question `What are hallucinations in the context of LLM models?`
 ```
 "Hallucinations in the context of LLMs refer to instances where the model generates content that does not align with real-world facts or the user's input. This can lead to unreliable and unfaithful language generation, which can negatively impact the effectiveness of LLMs in various applications. To address this challenge, the Hallucinations Leaderboard was created as an open effort to evaluate and compare different LLMs based on their tendency to generate hallucinated content. By providing insights into the generalization properties and limitations of these models, the leaderboard aims to support the development of more reliable and accurate language generators."
 ```
@@ -79,7 +79,7 @@ The results of the chan can be seen below to the question `What are hallucinatio
 --------------
 
 
-Once the pipeline is set up, the query can be done for similarity scoring. To the question `Which are the main characters of the book?` the following output with the **similarity_search_with_score** (the lower the better) was retrieved:
+Once the pipeline is set up, the query can be done for similarity scoring. To the question `What are hallucinations in the context of LLM models?` the following output with the **similarity_search_with_score** (the lower the better) was retrieved:
 
 ```
 Source: https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations, Score: 0.41722849011421204
@@ -100,7 +100,7 @@ The **score** represents the relevance or similarity measure between the query a
 ### RAGAS 📊
 --------------
 
-To evaluate the model we used the RAGAS library. **TestsetGenerator** and open-ai models allows to creaate synthetic evaluation dataset for assessing the RAG pipeline. It provides a variety of test generation strategies, including:
+To evaluate the model, we used the RAGAS library. **TestsetGenerator** and open-ai models allows to create synthetic evaluation dataset for assessing the RAG pipeline. It provides a variety of test generation strategies, including:
 
 - **simple**: Simple questions based on the documents and are more complex to derive from the provided contexts.
 
@@ -108,7 +108,7 @@ To evaluate the model we used the RAGAS library. **TestsetGenerator** and open-a
 
 - **multi_context**: Questions which are generated from multiple contexts from the documents. Rephrase the question in a manner that necessitates information from multiple related sections or chunks to formulate an answer.
 
-The testset.csv file is saved under evaluation
+The testset.csv file is saved under evaluation.
 
 <p align="center">
 <img alt="Screen Shot 2024-01-05 at 9 05 56 AM" src="https://github.com/benitomartin/rag_llama_deeplake/assets/116911431/2b1b232d-233c-41c0-a843-dd45f41982b8">
@@ -139,17 +139,17 @@ We can see that for the first 2 questions (simple) we reach very good results, w
 
 - **answer_relevancy**: all the questions got fairly relevant answers to the questions
 
-- **context_precision**: does the model response aligns with the question relevant elements? By reading the last two answers, they do not align completely. The third question ask for the size of the model, which is not available in the answer, which do not allow to get a proper answer on that. This means that the retrieved context to generated the answer do not contain the relevant elements from the question. The last question seems to have adressed the issue a bit better and retrieved some relevant elements. 
+- **context_precision**: does the model response aligns with the question relevant elements? By reading the last two answers, they do not align completely. The third question ask for the size of the model, which is not available in the answer, which do not allow to get a proper answer on that. This means that the retrieved context to generate the answer do not contain the relevant elements from the question. The last question seems to have addressed the issue a bit better and retrieved some relevant elements. 
 
-- **context_recall**: does the retrieved context contains the ground truth information to answer the question? Here we point out again to the third question, where, the size of the model is not available, which might be the reason of the lower score compared to the other questions
+- **context_recall**: does the retrieved context contains the ground truth information to answer the question? Here we point out again to the third question, where, the size of the model is not available, which might be the reason of the lower score compared to the other questions.
 
 - **answer_correctness**: we see that most of the answers contain more information (relevant or not relevant) compared to the ground truth, which lowers the score. Even if the answer is correct like the first one in the first statement, it includes a second statement which is not in the ground truth. 
 
 ## 📈 Further Steps
 
-Similarity scores has shown that even though the performance of the mdoel is not bad, it can be further improved. 
+Similarity scores has shown that even though the performance of the model is not bad, it can be further improved. 
 
-RAGAS is a good method for evaluation of LLM models and shows outstanding results in answer relevancy and context recall. However, we can see some areas of improvement in the way it retrieved the information and adress the context precission and faithfulness
+RAGAS is a good method for evaluation of LLM models and shows outstanding results in answer relevancy and context recall. However, we can see some areas of improvement in the way it retrieved the information and adress the context precission and faithfulness.
 
 Selecting other database, model, embeddings or performing hyperparameter tuning can enhance the results and further improve the metrics.
 
