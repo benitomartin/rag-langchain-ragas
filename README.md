@@ -36,7 +36,7 @@ The main steps taken to build the RAG pipeline can be summarize as follows (a ba
 
 ## 📐 Set Up
 
-In the initial project phase, the documents are loaded using **WebBaseLoader**and indexed. Indexing is a fundamental process for storing and organizing data from diverse sources into a vector store, a structure essential for efficient storage and retrieval. This process involves the following steps:
+In the initial project phase, the documents are loaded using **WebBaseLoader** and indexed. Indexing is a fundamental process for storing and organizing data from diverse sources into a vector store, a structure essential for efficient storage and retrieval. This process involves the following steps:
 
 - Select a splitting method and its hyperparameters: we will use the **RecursiveCharacterTextSplitter**. Recursively tries to split by different characters to find one that works.
 
