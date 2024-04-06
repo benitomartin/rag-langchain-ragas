@@ -87,7 +87,7 @@ Source: https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations, Scor
 Source: https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations, Score: 0.4498262107372284
 ```
 
-Once the pipeline is set up, the query can be done for similarity scoring. To the question `Which are the main characters of the book?` the following output with the **similarity_search_with_relevance_scores** (the higher the better) was retrieved:
+A similar metric is the **similarity_search_with_relevance_scores** which normalises the previous one from 0 to 1 (the higher the better). The output showed the following result:
 
 ```
 Source: https://huggingface.co/blog/leaderboards-on-the-hub-hallucinations, Score: 0.7049749053360163
