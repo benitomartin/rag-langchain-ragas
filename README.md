@@ -24,6 +24,8 @@ The main steps taken to build the RAG pipeline can be summarize as follows (a ba
 
 * **Evaluation**: TestsetGenerator from RAGAS and evaluation with faithfulness, answer_relevancy, context_recall, context_precision, and answer_correctness
 
+Feel free to ⭐ and clone this repo 😉
+
 ## 👨‍💻 **Tech Stack**
 
 
